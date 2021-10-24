@@ -18,6 +18,7 @@ useradd --system loki
 service loki start
 service loki enable
 service loki status
+curl "127.0.0.1:3100/metrics"
 ```
 
 # install promtail
@@ -40,7 +41,6 @@ chown promtail:promtail /tmp/positions.yaml
 iptables -A INPUT -p tcp -s localhost --dport 3100 -j ACCEPT
 iptables -A INPUT -p tcp --dport 3100 -j DROP
 iptables -L
-curl "127.0.0.1:3100/metrics"
 #promtail
 iptables -A INPUT -p tcp -s localhost --dport 9080 -j ACCEPT
 iptables -A INPUT -p tcp --dport 9080 -j DROP
