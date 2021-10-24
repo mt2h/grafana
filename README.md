@@ -16,7 +16,7 @@ chmod a+x loki
 useradd --system loki
 ```
 
-#install promtail
+# install promtail
 ```bash
 curl -fSL -o promtail.gz "https://github.com/grafana/loki/releases/download/v1.6.1/promtail-linux-amd64.zip"
 gunzip promtail.gz
