@@ -1,0 +1,30 @@
+version: "3"
+
+networks:
+  loki:
+
+services:
+  loki:
+    image: grafana/loki:2.3.0
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./docker-config-loki.yml:/etc/promtail/config.yml
+    command: -config.file=/etc/loki/config.yml
+    networks:
+      - loki
+
+  promtail:
+    image: grafana/promtail:2.3.0
+    volumes:
+      - ./docker-config-promtail.yml:/etc/promtail/config.yml
+    command: -config.file=/etc/promtail/config.yml
+    networks:
+      - loki
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - loki
