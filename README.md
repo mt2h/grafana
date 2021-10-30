@@ -33,6 +33,18 @@ service promtail enable
 service promtail status
 curl "127.0.0.1:9080/metrics"
 chown promtail:promtail /tmp/positions.yaml
+
+ls -lh /var/log/nginx/ #allow adm
+usermod -a -G adm promtail
+groups promtail
+```
+
+# install prometheus
+```bash
+apt install prometheus
+service prometheus status
+ps -u prometheus
+curl localhost:9100/metrics
 ```
 
 # firewall
@@ -48,4 +60,8 @@ iptables -A INPUT -p tcp --dport 9080 -j DROP
 apt install iptables-persistent
 iptables-save > /etc/iptables/rules.v4
 iptables-save > /etc/iptables/rules.v6
+
+iptables -A INPUT -p tcp -s localhost --dport 9090 -j ACCEPT
+iptables -A INPUT -p tcp --dport 9090 -j DROP
+iptables -L
 ```
