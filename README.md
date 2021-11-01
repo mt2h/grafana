@@ -129,4 +129,4 @@ iptables-save > /etc/iptables/rules.v6
 ```
 # board
 
-![Board](./img/board.jpeg
+![Board](./img/board.jpeg)
