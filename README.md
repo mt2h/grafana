@@ -48,6 +48,8 @@ apt install prometheus
 service prometheus status
 ps -u prometheus
 curl localhost:9100/metrics
+
+http://testing.mt2h.cl:9090/graph
 ```
 
 # install influxdb
@@ -94,6 +96,8 @@ ps -u telegraf
 telegraf -test -config /etc/telegraf/telegraf.conf
 service telegraf restart
 service telegraf status
+
+grep ^[^#] /etc/telegraf/telegraf.conf
 ```
 
 # firewall
