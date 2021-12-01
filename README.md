@@ -1,3 +1,6 @@
+# URL Course 
+https://sbcode.net/grafana/install-grafana/
+
 # install grafana
 
 ```bash
