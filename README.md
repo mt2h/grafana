@@ -4,12 +4,13 @@ https://sbcode.net/grafana/install-grafana/
 # install grafana
 
 ```bash
-apt-get install -y adduser libfontconfig1
+sudo apt-get update
+sudo apt-get install -y adduser libfontconfig1
 wget https://dl.grafana.com/oss/release/grafana_7.1.3_amd64.deb
-dpkg -i grafana_7.1.3_amd64.deb
-service grafana-server start
-service grafana-server enable
-service grafana-server status
+sudo dpkg -i grafana_7.1.3_amd64.deb
+sudo service grafana-server start
+sudo service grafana-server enable
+sudo service grafana-server status
 ```
 
 # install loki
